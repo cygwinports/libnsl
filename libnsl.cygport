@@ -1,0 +1,27 @@
+NAME="libnsl"
+VERSION=1.2.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="NIS(YP) and NIS+ client library"
+DESCRIPTION="This package contains the libnsl library. This library contains the
+public client interface for NIS(YP) and NIS+.  This code was formerly part of
+glibc, but is now standalone to be able to link against TI-RPC for IPv6 support.
+The NIS(YP) functions are still maintained, the NIS+ part is deprecated and
+should not be used anymore."
+HOMEPAGE="http://www.linux-nis.org/"
+SRC_URI="https://github.com/thkukuk/libnsl/archive/v${VERSION}/libnsl-v${VERSION}.tar.gz"
+SRC_DIR="libnsl-${VERSION}"
+PATCH_URI="1.0.4-cygwin.patch"
+
+PKG_NAMES="libnsl2 libnsl-devel"
+libnsl2_CONTENTS="
+	usr/bin/cygnsl-2.dll
+	usr/share/doc/
+"
+libnsl_devel_REQUIRES="libtirpc-devel"
+libnsl_devel_CONTENTS="
+	usr/include/rpcsvc/nis*
+	usr/include/rpcsvc/yp*
+	usr/lib/libnsl.dll.a
+	usr/lib/pkgconfig/libnsl.pc
+"

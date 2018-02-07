@@ -1,0 +1,21 @@
+--- origsrc/libnsl-1.0.4/src/Makefile.am	2016-01-20 09:33:41.000000000 -0600
++++ src/Makefile.am	2017-08-03 16:02:37.976951300 -0500
+@@ -27,6 +27,7 @@
+ lib_LTLIBRARIES = libnsl.la
+ 
+ libnsl_la_LDFLAGS = -version-info 2:0:0 \
++	-no-undefined \
+ 	-Wl,--no-undefined \
+ 	-Wl,--version-script=$(srcdir)/libnsl.map
+ libnsl_la_LIBADD = @TIRPC_LIBS@ @LTLIBINTL@
+--- origsrc/libnsl-1.0.4/src/nisplus/nis_call.c	2016-02-15 09:10:32.000000000 -0600
++++ src/nisplus/nis_call.c	2017-08-03 16:00:05.513025500 -0500
+@@ -36,6 +36,8 @@
+ #include "nis_intern.h"
+ #include "nis_xdr.h"
+ 
++#define stat64 stat
++
+ static const struct timeval RPCTIMEOUT = {10, 0};
+ static const struct timeval UDPTIMEOUT = {5, 0};
+ 
