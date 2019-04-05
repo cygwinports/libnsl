@@ -18,7 +18,6 @@ libnsl2_CONTENTS="
 	usr/bin/cygnsl-2.dll
 	usr/share/doc/
 "
-libnsl_devel_REQUIRES="libtirpc-devel"
 libnsl_devel_CONTENTS="
 	usr/include/rpcsvc/nis*
 	usr/include/rpcsvc/yp*
